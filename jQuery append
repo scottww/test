@@ -1,0 +1,62 @@
+<html>
+
+<head>
+  <!-- <script type="text/javascript" src="/jquery/jquery.js"></script> -->
+  <script src="http://libs.baidu.com/jquery/2.0.0/jquery.min.js"></script>
+  <script type="text/javascript">
+    $(document).ready(function () {
+      $("button").click(function () {
+        var data = [
+          {
+            pd: "1001-2001", pid: "1"
+          }, 
+          {
+            pd: "3001-4001", pid: "2"
+          },
+          {
+           pd: "5001-6001", pid: "3"
+          }
+        ];
+        //需要追加的节点对象
+        //var oSelect = $('#appendNode').next().children('select')[0][1];
+        var oSelect = $('#appendNode').next().children('select').find('option');
+        debugger;
+        oSelect[1].innerHTML = '';
+        for (var i = 1; i < data.length+1; i++) {
+          //需要追加的内容
+          //oSelect.after("<br />")
+          if(i=1){
+            oSelect[i].innerHTML = data[i].pd;
+          }else{
+            oSelect[1].append(data[i].pd);
+          }
+        
+        
+          //oSelect.after("<br />")
+          
+
+        }
+
+      });
+    });
+  </script>
+</head>
+
+<body>
+  <div>
+    <p style="color:red">请选择它的兄弟</p>
+    <hr style="width: 200px; margin-left: 0px;">
+    <div id="appendNode"></div>
+    <div>
+      <select>
+        <option value="test">-- 请开始你的表演 --</option>
+        <option>1</option>
+      </select>
+    </div>
+  </div>
+
+  
+  <button style="margin-top:80px;">给元素添加内容</button>
+</body>
+
+</html>
