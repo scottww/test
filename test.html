@@ -7,14 +7,43 @@
 </head>
 
 <body>
-    <div><b>gitlabtest</b></div>
-    <p style="color:blue;"><strong>https://tortoisegit.org/download/</strong></p>
+    <div>
+        <b>gitlabtest</b>
+    </div>
+    <p style="color:blue;">
+        <strong>https://tortoisegit.org/download/</strong>
+    </p>
     <p>Modify user information</p>
     <p>Defining local information testing</p>
     <p>add ssh</p>
 
     <script>
-        //没有提示的吗？？？
+        //black的代码
+        form.on('select(wordrail)', function(data) {
+            var wordrail = data.value;
+            console.log(wordrail);
+            $.ajax({
+                type: 'POST',
+                url: contextPath + '/ticketAdditionalRecording/getCon.do',
+                data: {
+                    wordrail: wordrail
+                },
+                dataType: 'json',
+                success: function(data) {
+                    debugger;
+                    $("select[name='ticketnumberid']").next().children('dl')[0].children[1].innerHTML = "";
+
+                    // for (var i = 0; i < data.length; i++) {
+                    //     $("select[name='ticketnumberid']").next().children('dl')[0].children[1].innerHTML = "";
+                    // }
+                    // console.log();
+                    console.log(data);
+                    //console.log($("input[name='ticketnumberid']").val());
+
+                    //console.log(cTime.forEach());
+                }
+            });
+        });
     </script>
 </body>
 
